@@ -6,10 +6,19 @@
              NavigationPage.HasNavigationBar="False"
              x:Class="SUAP_Movil.MainPage">
 
-    <WebView x:Name="webView"
-             Source="http://suap.com.ar"
+    <StackLayout>
+        <ActivityIndicator x:Name="loadingIndicator"
+                       IsRunning="False"
+                       IsVisible="False"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Color="Blue"/>
+
+        <WebView x:Name="webView"
              VerticalOptions="FillAndExpand"
-             HorizontalOptions="FillAndExpand" />   
+             HorizontalOptions="FillAndExpand"
+             IsVisible="False"/>
+    </StackLayout>
 
 
 </ContentPage>
