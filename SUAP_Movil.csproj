@@ -41,11 +41,13 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
-	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidPackageFormat>aab</AndroidPackageFormat>
 	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <AndroidSigningStorePass>Jefatura457</AndroidSigningStorePass>
 	  <AndroidSigningKeyAlias>Tato</AndroidSigningKeyAlias>
 	  <AndroidSigningKeyPass>Jefatura457</AndroidSigningKeyPass>
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
@@ -53,6 +55,9 @@
 	  <AndroidSigningStorePass>Jefatura457</AndroidSigningStorePass>
 	  <AndroidSigningKeyAlias>Tato</AndroidSigningKeyAlias>
 	  <AndroidSigningKeyPass>Jefatura457</AndroidSigningKeyPass>
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <AndroidPackageFormat>aab</AndroidPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -76,6 +81,7 @@
 	<ItemGroup>
 	  <Compile Remove="OpenVpnServiceConnection.cs" />
 	  <Compile Remove="Platforms\Android\MainActivityHelpers.cs" />
+	  <Compile Remove="Platforms\Android\VpnDisconnectTriggerReceiver .cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -83,5 +89,10 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 	</ItemGroup>
+
+	<PropertyGroup>
+	<AndroidInterfaceDescriptionFiles>Platforms\Android\src\main\aidl</AndroidInterfaceDescriptionFiles>
+	</PropertyGroup>
+
 
 </Project>

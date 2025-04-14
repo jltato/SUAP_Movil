@@ -18,7 +18,6 @@ namespace SUAP_Movil
     {
         private string currentUrl = string.Empty;
 
-
         public MainPage()
         {
             InitializeComponent();
@@ -33,7 +32,8 @@ namespace SUAP_Movil
             // Si estamos en login.aspx, desconectamos y salimos
             if (currentUrl.Contains("login.aspx", StringComparison.OrdinalIgnoreCase))
             {
-                MainActivity.Instance?.DisconnectVPN();
+                MainActivity.Instance?.DisconnectVPN();               
+                
                 return base.OnBackButtonPressed(); // Cierra la app
             }
 
@@ -62,12 +62,12 @@ namespace SUAP_Movil
             loadingIndicator.IsRunning = true;
 
             await WaitForVpnAndLoadWebView();
-
-           
+          
         }
 
         private async Task WaitForVpnAndLoadWebView()
         {
+
             loadingIndicator.IsVisible = true;
             webView.IsVisible = false;
 
@@ -106,7 +106,6 @@ namespace SUAP_Movil
             }
         }
 
-
         private async Task<bool> IsVpnHostReachable(string ipAddress, int port)
         {
             try
@@ -118,6 +117,7 @@ namespace SUAP_Movil
             catch
             {
                 return false;
+                
             }
         }
     }
